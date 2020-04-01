@@ -8,6 +8,9 @@ import PlayList from "../playlist/playlist";
 class App extends React.Component {
     constructor(props) {
         super(props)
+
+        this.addTrack = this.addTrack.bind(this);
+        this.removeTrack = this.removeTrack.bind(this);
         this.state = {
             searchResults: [
                 {
@@ -31,9 +34,57 @@ class App extends React.Component {
                     id: "03"
 
                 }
+            ],
+
+            playlistName: "New Playlist",
+            playlistTracks: [
+                {
+                    name: "Ragnarok",
+                    artist: "Amon Amarth",
+                    album: "Fate of Norns",
+                    id: "04"
+
+                },
+                {
+                    name: "Mjolnirs Thunder",
+                    artist: "Amon Amarth",
+                    album: "Fate of Norns",
+                    id: "05"
+
+                },
+                {
+                    name: "Death By SnuSnu",
+                    artist: "Amon Amarth",
+                    album: "Fate of Norns",
+                    id: "06"
+
+                }
+
             ]
         };
 
+    }
+
+    addTrack(track) {
+        let isNew = true;
+        this.state.playlistTracks.forEach(playlistTrack => {
+            if (track.id === playlistTrack.id) {
+                isNew = false;
+            };
+
+        });
+        if (isNew) {
+            const updatedPlaylistTracks = this.state.playlistTracks;
+            updatedPlaylistTracks.push(track);
+            this.setState({ playlistTracks: updatedPlaylistTracks });
+        }
+
+    }
+
+    removeTrack(track) {
+        let tracks = this.state.playlistTracks;
+        let filteredTracks = tracks.filter(input => input.id != track.id);
+        this.setState({ playlistTracks: filteredTracks });
     }
 
     render() {
@@ -43,8 +94,8 @@ class App extends React.Component {
                 <div className="App">
                     <SearchBar />
                     <div className="App-playlist">
-                        <SearchResults searchResults={this.state.searchResults}/>
-                        <PlayList />
+                        <SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack} />
+                        <PlayList playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks} onRemove={this.removeTrack} />
                     </div>
                 </div>
             </div>
