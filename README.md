@@ -1,8 +1,8 @@
-#Jammming
+# Jammming
 
 Jammming is a little Tool that helps you to easily create new playlists for your Spotify account.
 
-##Technologies used
+## Technologies used
 
 React
 Spotify API
