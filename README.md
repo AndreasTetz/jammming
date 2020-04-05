@@ -4,7 +4,7 @@ Jammming is a little Tool that helps you to easily create new playlists for your
 
 ## Technologies used
 
-React
+React<br />
 Spotify API
 
 ## Available Scripts
