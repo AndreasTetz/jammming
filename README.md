@@ -1,4 +1,11 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#Jammming
+
+Jammming is a little Tool that helps you to easily create new playlists for your Spotify account.
+
+##Technologies used
+
+React
+Spotify API
 
 ## Available Scripts
 
