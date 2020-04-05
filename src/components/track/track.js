@@ -2,15 +2,8 @@ import React from "react";
 import "./track.styles.css";
 
 class Track extends React.Component {
-    constructor(props) {
-        super(props)
 
-        this.renderAction = this.renderAction.bind(this);
-        this.addTrack = this.addTrack.bind(this);
-
-    }
-
-    renderAction() {
+    renderAction = () => {
         let button = {};
         this.props.isRemoval ?
             button = { content: "-", action: this.removeTrack } :
